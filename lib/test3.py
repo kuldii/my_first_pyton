@@ -12,7 +12,7 @@ try:
             for indexNumberInARow in range(len(allNumbersInARow)):
                 if(str(allNumbersInARow[indexNumberInARow]).lower() == "na"):
                     allNumbersInARow[indexNumberInARow] = float(allNumbersInARow[indexNumberInARow-1]) + float(allNumbersInARow[indexNumberInARow+1]) / 2
-                if(math.sqrt(float(allNumbersInARow[indexNumberInARow])) > 50):
+                if(math.sqrt(float(allNumbersInARow[indexNumberInARow])) > (50+12)):
                     allNumbers.append(allNumbersInARow[indexNumberInARow])
             
     with open("assets/result/3/"+fileName+"_result", "w") as result:
