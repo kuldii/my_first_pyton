@@ -30,6 +30,6 @@ Number 4 :<br/>
     #заголовок для примера<br/>
     #id,name,age,salary<br/>
     1, Connor John, 25, 1000₽<br/>
-    2, Mikail Abigail, 50, 2000₽
+    2, Mikail Abigail, 50, 2000₽<br/>
     ...<br/><br/>
 
