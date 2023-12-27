@@ -1,23 +1,19 @@
 import math  
 
-try:
-    fileName = "text_3_var_12"
-    allNumbers = []
-    
-    with open("assets/data/3/"+fileName, "r") as file:
-        allLines = file.readlines()
+fileName = "text_3_var_12"
+varian = 12
+allNumbers = []
 
-        for line in allLines:
-            allNumbersInARow = line.strip().split(",")
-            for indexNumberInARow in range(len(allNumbersInARow)):
-                if(str(allNumbersInARow[indexNumberInARow]).lower() == "na"):
-                    allNumbersInARow[indexNumberInARow] = float(allNumbersInARow[indexNumberInARow-1]) + float(allNumbersInARow[indexNumberInARow+1]) / 2
-                if(math.sqrt(float(allNumbersInARow[indexNumberInARow])) > (50+12)):
-                    allNumbers.append(allNumbersInARow[indexNumberInARow])
-            
-    with open("assets/result/3/"+fileName+"_result", "w") as result:
-        for value in allNumbers:
-            result.write(str(value) + "\n")
+with open("assets/data/3/"+fileName, "r") as file:
+    allLines = file.readlines()
+    for line in allLines:
+        allNumbersInARow = line.strip().split(",")
+        for i in range(len(allNumbersInARow)):
+            if(str(allNumbersInARow[i]).lower() == "na" and str(allNumbersInARow[i-1]).lower() != "na" and str(allNumbersInARow[i+1]).lower() != "na"):
+                allNumbersInARow[i] = (float(allNumbersInARow[i-1]) + float(allNumbersInARow[i+1])) / 2
+            if(math.sqrt(float(allNumbersInARow[i])) >= (50+varian)):
+                allNumbers.append(allNumbersInARow[i])
         
-except Exception as e:
-    print(e)
+with open("assets/result/3/"+fileName+"_result", "w") as result:
+    for value in allNumbers:
+        result.write(str(value) + "\n")
